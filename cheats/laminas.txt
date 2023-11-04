@@ -1,1 +1,1 @@
-composer require laminas/laminas-cache laminas/laminas-cache-storage-adapter-redis  laminas/laminas-eventmanager laminas/laminas-servicemanager laminas/laminas-stdlib --ignore-platform-reqs
+composer require laminas/laminas-cache laminas/laminas-cache-storage-adapter-redis  laminas/laminas-diactoros laminas/laminas-eventmanager laminas/laminas-servicemanager laminas/laminas-stdlib --ignore-platform-reqs
