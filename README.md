@@ -42,6 +42,17 @@ Luckily for us, Composer is more than just `install`, `require`, and `update`, a
 #### Explains Why Composer Cannot Install This Package
 `composer prohibits <package> <version>`
 
+## Downgrade Package Code with Rector
+
+1. Install Rector: `composer install --dev rector/rector`
+2. Update problem packages to latest version, explicitly requiring affected
+    transitive dependencies directly with `composer require <package> --ignore-platform-reqs`
+3. Move package files under version control, e.g. `mv vendor/laminas lib`
+4. Add a new path repository entry for each dependency
+5. Run Rector on files with downgrade rule: `php vendor/bin/rector process lib --config=rector-downgrade.php`
+6. Run `composer update`
+7. Double check that everything worked, run your test suite, code linter, and/or static analyzer.
+
 ## Resources
 
 - [Official Composer Documentation](https://getcomposer.org/doc/)
