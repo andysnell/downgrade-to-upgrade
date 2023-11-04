@@ -1,0 +1,119 @@
+{
+    "name": "andysnell/downgrade-to-upgrade",
+    "description": "Resources and Slide Links for \"Downgrade to Upgrade and Other Composer Tricks\"",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AndySnell\\DowngradeToUpgrade\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "github",
+            "url": "https://github.com/iansltx/openspout"
+        },
+        {
+            "type": "path",
+            "url": "./lib/laminas/laminas-cache",
+            "canonical": false,
+            "options": {
+                "symlink": false,
+                "versions": {
+                    "laminas/laminas-cache": "3.11.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "./lib/laminas/laminas-cache-storage-adapter-redis",
+            "canonical": false,
+            "options": {
+                "symlink": false,
+                "versions": {
+                    "laminas/laminas-cache-storage-adapter-redis": "2.6.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "./lib/laminas/laminas-diactoros",
+            "canonical": false,
+            "options": {
+                "symlink": false,
+                "versions": {
+                    "laminas/laminas-diactoros": "3.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "./lib/laminas/laminas-eventmanager",
+            "canonical": false,
+            "options": {
+                "symlink": false,
+                "versions": {
+                    "laminas/laminas-eventmanager": "3.12.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "./lib/laminas/laminas-servicemanager",
+            "canonical": false,
+            "options": {
+                "symlink": false,
+                "versions": {
+                    "laminas/laminas-servicemanager": "3.22.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "./lib/laminas/laminas-stdlib",
+            "canonical": false,
+            "options": {
+                "symlink": false,
+                "versions": {
+                    "laminas/laminas-stdlib": "3.18.0"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.2",
+        "ext-redis": "*",
+        "guzzlehttp/guzzle": "^7.8",
+        "laminas/laminas-cache": "^3.11",
+        "laminas/laminas-diactoros": "^2.17.0",
+        "openspout/openspout": "dev-3.x-php82 as 3.7.5",
+        "symfony/console": "^5.4",
+        "wickedbyte/downgrade-to-upgrade-dummy": "dev-main as 1.0.1",
+        "laminas/laminas-cache-storage-adapter-redis": "^2.6",
+        "laminas/laminas-eventmanager": "^3.12",
+        "laminas/laminas-servicemanager": "^3.22",
+        "laminas/laminas-stdlib": "^3.18"
+    },
+    "replace": {
+        "laminas/laminas-cache-storage-adapter-apc": "*",
+        "laminas/laminas-cache-storage-adapter-apcu": "*",
+        "laminas/laminas-cache-storage-adapter-blackhole": "*",
+        "laminas/laminas-cache-storage-adapter-dba": "*",
+        "laminas/laminas-cache-storage-adapter-ext-mongodb": "*",
+        "laminas/laminas-cache-storage-adapter-filesystem": "*",
+        "laminas/laminas-cache-storage-adapter-memcache": "*",
+        "laminas/laminas-cache-storage-adapter-memcached": "*",
+        "laminas/laminas-cache-storage-adapter-memory": "*",
+        "laminas/laminas-cache-storage-adapter-mongodb": "*",
+        "laminas/laminas-cache-storage-adapter-session": "*",
+        "laminas/laminas-cache-storage-adapter-wincache": "*",
+        "laminas/laminas-cache-storage-adapter-xcache": "*",
+        "laminas/laminas-cache-storage-adapter-zend-server": "*",
+        "laminas/laminas-zendframework-bridge": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*"
+    },
+    "require-dev": {
+        "rector/rector": "^0.18.6"
+    }
+}
