@@ -1,0 +1,42 @@
+name: downgrade-to-upgrade
+services:
+  php74:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
+      args:
+        BASE_IMAGE: php:7.4-cli
+    environment:
+      COMPOSER_AUTH: "{\"github-oauth\": {\"github.com\":\"${GITHUB_TOKEN}\"}}"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    networks:
+      default: null
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/www
+      - type: bind
+        source: ./settings.ini
+        target: /usr/local/etc/php/conf.d/settings.ini
+      - type: volume
+        source: composer-cache
+        target: /home/dev/.composer/cache
+      - type: volume
+        source: bash-history
+        target: /home/dev/.bash_history
+  php82:
+    extends: php74
+    build:
+      args:
+        BASE_IMAGE: php:8.2-cli
+networks:
+  default:
+    name: downgrade-to-upgrade-default-network
+volumes:
+  composer-cache:
+    name: downgrade-to-upgrade-composer-cache
+  bash-history:
+    name: downgrade-to-upgrade-bash-history
