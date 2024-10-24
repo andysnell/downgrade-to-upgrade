@@ -1,0 +1,70 @@
+[
+    {
+        "type": "path",
+        "url": "./lib/composer-replacements",
+        "options": {
+            "symlink": false,
+            "versions": {
+                "andysnell/composer-replacements": "dev-main"
+            }
+        }
+    },
+    {
+        "type": "github",
+        "url": "https://github.com/andysnell/openspout"
+    },
+    {
+        "type": "path",
+        "url": "./lib/laminas/laminas-cache",
+        "options": {
+            "versions": {
+                "laminas/laminas-cache": "3.12.2"
+            }
+        }
+    },
+    {
+        "type": "path",
+        "url": "./lib/laminas/laminas-cache-storage-adapter-redis",
+        "options": {
+            "versions": {
+                "laminas/laminas-cache-storage-adapter-redis": "2.9.0"
+            }
+        }
+    },
+    {
+        "type": "path",
+        "url": "./lib/laminas/laminas-diactoros",
+        "options": {
+            "versions": {
+                "laminas/laminas-diactoros": "3.4.0"
+            }
+        }
+    },
+    {
+        "type": "path",
+        "url": "./lib/laminas/laminas-eventmanager",
+        "options": {
+            "versions": {
+                "laminas/laminas-eventmanager": "3.13.1"
+            }
+        }
+    },
+    {
+        "type": "path",
+        "url": "./lib/laminas/laminas-servicemanager",
+        "options": {
+            "versions": {
+                "laminas/laminas-servicemanager": "3.22.1"
+            }
+        }
+    },
+    {
+        "type": "path",
+        "url": "./lib/laminas/laminas-stdlib",
+        "options": {
+            "versions": {
+                "laminas/laminas-stdlib": "3.19.0"
+            }
+        }
+    }
+]

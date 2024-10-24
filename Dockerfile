@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1.4
-ARG BASE_IMAGE=php:8.2-cli
+ARG BASE_IMAGE=php:8.3-cli
 FROM $BASE_IMAGE
 
-ARG BASE_IMAGE=php:8.2-cli
+ARG BASE_IMAGE=php:8.3-cli
 
 WORKDIR /var/www
 
@@ -47,10 +47,13 @@ RUN mkdir -p "/home/dev/.composer" \
   && touch "/home/dev/.bash_history/.bash_history" \
   && chown -R "dev:dev" "/home/dev/" \
   && echo "PS1='[\[\e[32m\]$BASE_IMAGE\[\e[0m\]]:\[\e[96m\]\w \[\e[0m\]\\$ '" >> "/home/dev/.bashrc" \
-  && echo "export PROMPT_COMMAND='history -a' && export HISTFILE=/home/dev/.bash_history/.bash_history" >> "/home/dev/.bashrc"
+  && echo "export PROMPT_COMMAND='history -a' && export HISTFILE=/home/dev/.bash_history/.bash_history" >> "/home/dev/.bashrc" \
+  && echo "alias c='clear'" >> "/home/dev/.bashrc" \
+  && echo "error_reporting=E_ALL" >> "/usr/local/etc/php/conf.d/settings.ini" \
+  && echo "display_errors=on" >> "/usr/local/etc/php/conf.d/settings.ini" \
+  && echo "log_errors=on" >> "/usr/local/etc/php/conf.d/settings.ini"
 
 COPY --link --from=composer/composer:latest-bin /composer /usr/bin/composer
-COPY --link ./settings.ini /usr/local/etc/php/conf.d/settings.ini
 
 USER dev
 

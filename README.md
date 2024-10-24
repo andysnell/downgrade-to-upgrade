@@ -1,10 +1,10 @@
 # Downgrade to Upgrade and Other Composer Tricks
 
+**Cascadia PHP 2024**: [Rate This Talk on Joind.in](https://joind.in/talk/6dcf8)
+
 ## Latest Slides
 [![Downgrade to Upgrade and Other Composer Tricks](slide_deck_cover.png)](https://bit.ly/2UCaZDo)
 **Slide Deck Link:** [https://wkdb.yt/downgrade-slides](https://wkdb.yt/downgrade-slides)
-
-**Joind.in Link for Longhorn PHP 2023:** [https://joind.in/talk/970b2](https://joind.in/talk/970b2)
 
 ## Abstract
 Thanks to the ubiquity of Composer, a PHP application may depend on dozens of third-party packages, each of which will define their own dependencies. When an application is deployed and working as expected, it can be difficult to prioritize the development time for package updates with breaking changes, and you might find some dependencies have slipped a few major versions behind their current release. Nevertheless, even if all root dependencies are up to date, some packages inevitably become abandoned, drop version constraints, or add an incompatible dependency. The end result: upgrading to the latest PHP version (or other package) is blocked by a tangled web of interdependent version conflicts and incompatible vendor code.

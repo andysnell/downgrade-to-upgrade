@@ -4,8 +4,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-      platforms:
-        - linux/amd64
       args:
         BASE_IMAGE: php:7.4-cli
     environment:
@@ -18,23 +16,22 @@ services:
       - type: bind
         source: ./
         target: /var/www
-      - type: bind
-        source: ./settings.ini
-        target: /usr/local/etc/php/conf.d/settings.ini
       - type: volume
         source: composer-cache
         target: /home/dev/.composer/cache
       - type: volume
         source: bash-history
         target: /home/dev/.bash_history
-  php82:
+  php83:
     extends: php74
     build:
       args:
-        BASE_IMAGE: php:8.2-cli
+        BASE_IMAGE: php:8.3-cli
+
 networks:
   default:
     name: downgrade-to-upgrade-default-network
+
 volumes:
   composer-cache:
     name: downgrade-to-upgrade-composer-cache

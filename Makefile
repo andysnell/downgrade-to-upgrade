@@ -2,7 +2,7 @@
 SHELL := bash
 
 php74 = docker compose run --rm php74
-php82 = docker compose run --rm php82
+php83 = docker compose run --rm php83
 
 vendor: build
 	@$(php74) composer install
@@ -26,26 +26,18 @@ restart: clear
 	@rm -rf vendor
 	@$(php74) composer install
 
-.PHONY: bash74
-bash74:
+.PHONY: php74
+php74:
 	@$(php74) bash
 
-.PHONY: bash82
-bash82:
-	@$(php82) bash
-
-.PHONY: psysh74
-psysh74:
-	@$(php74) vendor/bin/psysh
-
-.PHONY: psysh82
-psysh82:
-	@$(php82) vendor/bin/psysh
+.PHONY: php83
+php83:
+	@$(php83) bash
 
 .PHONY: lint74
 lint74:
 	@$(php74) vendor/bin/parallel-lint --exclude vendor .
 
-.PHONY: lint82
-lint82:
-	@$(php82) vendor/bin/parallel-lint --exclude vendor .
+.PHONY: lint83
+lint83:
+	@$(php83) vendor/bin/parallel-lint --exclude vendor .

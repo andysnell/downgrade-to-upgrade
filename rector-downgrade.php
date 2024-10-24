@@ -5,16 +5,11 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\DowngradeLevelSetList;
 
-return static function (RectorConfig $config): void {
-    $config->importNames(true);
-    $config->importShortClasses(false);
-
-    $config->paths([
+return RectorConfig::configure()
+    ->withImportNames(true, true, false)
+    ->withPaths([
         __DIR__ . '/src',
         __DIR__ . '/lib',
+    ])->withSets([
+        DowngradeLevelSetList::DOWN_TO_PHP_74,
     ]);
-
-    $config->sets([
-        DowngradeLevelSetList::DOWN_TO_PHP_74
-    ]);
-};

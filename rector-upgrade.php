@@ -3,18 +3,10 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Set\ValueObject\LevelSetList;
 
-return static function (RectorConfig $config): void {
-    $config->importNames(true);
-    $config->importShortClasses(false);
-
-    $config->paths([
+return RectorConfig::configure()
+    ->withImportNames(true, true, false)
+    ->withPaths([
         __DIR__ . '/src',
         __DIR__ . '/lib',
-    ]);
-
-    $config->sets([
-        LevelSetList::UP_TO_PHP_82,
-    ]);
-};
+    ])->withPhpSets();
